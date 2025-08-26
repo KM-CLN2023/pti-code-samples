@@ -1,0 +1,30 @@
+input:
+  adata: example_data/adata_raw.h5ad
+
+output:
+  adata: results/scRNA/adata_processed.h5ad
+  figdir: results/figures
+
+qc:
+  min_genes: 200
+  min_cells: 3
+  max_genes: 8000
+  max_mt_pct: 15
+
+hvg:
+  n_top_genes: 3000
+
+batch:
+  method: scvi   # or 'harmony' or 'none'
+  key: batch
+  n_latent: 20
+  epochs: 100
+
+cluster:
+  resolution: 0.8
+  key: leiden_0.8
+
+markers:
+  neuropeptides: ['ML003517a','ML02736a']
+  synaptic: ['SNAP25','STX1A']
+  digestive: ['CTSB','CTSD']

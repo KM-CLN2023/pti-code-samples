@@ -1,0 +1,15 @@
+name: sc-proteomics-env
+channels: [conda-forge, bioconda]
+dependencies:
+  - python=3.11
+  - scanpy
+  - anndata
+  - scvi-tools
+  - pytorch
+  - matplotlib
+  - pandas
+  - numpy
+  - pip
+  - pip:
+      - harmonypy
+      - plotly

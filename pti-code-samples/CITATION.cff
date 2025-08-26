@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: If you use this code, please cite.
+title: PTI Code Samples — Single-Cell & Proteomics
+authors:
+  - family-names: Mukherjee
+    given-names: Krishanu
+date-released: 2025-08-26
+license: MIT

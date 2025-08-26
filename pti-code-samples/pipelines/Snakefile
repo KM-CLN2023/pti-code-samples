@@ -1,0 +1,25 @@
+# Snakemake DAG wiring single-cell and proteomics example steps
+configfile: 'pipelines/config/config.yaml'
+
+rule all:
+    input:
+        'results/scRNA/adata_processed.h5ad',
+        'results/figures/umap_modules.png',
+        'results/proteomics/msstats_results.csv'
+
+rule sc_pipeline:
+    input:
+        adata=config['scRNA']['adata']
+    output:
+        adata='results/scRNA/adata_processed.h5ad',
+        figdir=directory('results/figures')
+    shell:
+        'python single_cell/sc_pipeline.py pipelines/config/config.yaml'
+
+rule proteomics_stats:
+    input:
+        tidy='results/proteomics/proteomics_long.csv'
+    output:
+        res='results/proteomics/msstats_results.csv'
+    shell:
+        'Rscript proteomics/msstats_example.R'
